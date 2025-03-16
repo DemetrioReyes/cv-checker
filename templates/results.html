@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados del Análisis</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Resultados del Análisis</h1>
+        <div class="results-card">
+            <div class="score-section">
+                <h2>Puntuación Total: {{ result.summary.total_score }}</h2>
+            </div>
+
+            <div class="skills-section">
+                <h3>Habilidades Detectadas</h3>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Backend ({{ result.skills_analysis.backend_skills_score }} pts)</h4>
+                        <ul>
+                            {% for skill in result.skills_analysis.backend_skills_found %}
+                                <li>{{ skill }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Frontend ({{ result.skills_analysis.frontend_skills_score }} pts)</h4>
+                        <ul>
+                            {% for skill in result.skills_analysis.frontend_skills_found %}
+                                <li>{{ skill }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ats-section">
+                <h3>Compatibilidad ATS</h3>
+                <ul class="ats-checklist">
+                    <li class="{{ 'success' if result.ATS_compliance.email_detected else 'error' }}">
+                        Email {{ '✓' if result.ATS_compliance.email_detected else '✗' }}
+                    </li>
+                    <li class="{{ 'success' if result.ATS_compliance.phone_detected else 'error' }}">
+                        Teléfono {{ '✓' if result.ATS_compliance.phone_detected else '✗' }}
+                    </li>
+                    <li class="{{ 'success' if result.ATS_compliance.education_section_detected else 'error' }}">
+                        Sección de Educación {{ '✓' if result.ATS_compliance.education_section_detected else '✗' }}
+                    </li>
+                    <li class="{{ 'success' if result.ATS_compliance.work_history_section_detected else 'error' }}">
+                        Experiencia Laboral {{ '✓' if result.ATS_compliance.work_history_section_detected else '✗' }}
+                    </li>
+                </ul>
+            </div>
+
+            <div class="experience-section">
+                <h3>Nivel de Experiencia</h3>
+                <p>{{ result.experience_level }}</p>
+            </div>
+
+            <a href="/" class="back-button">Analizar otro CV</a>
+        </div>
+    </div>
+</body>
+<footer>
+    <div class="footer">
+        <p>Desarrollado por <a href="
+        https://www.linkedin.com/in/demetrio-reyes-martinez-499765341" target="_blank">Demetrio Reyes</a></p>
+</footer>
+</html> 
