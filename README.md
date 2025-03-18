@@ -1,6 +1,98 @@
-# Analizador de CV (Resume Analyzer)
+# Analizador de CV
 
-Este proyecto es un analizador de CV que utiliza FastAPI y Jinja2 para evaluar currículums en formato PDF y proporcionar un análisis detallado de las habilidades y características del documento.
+Una aplicación web moderna para el análisis de currículos vitae, desarrollada con FastAPI y tecnologías modernas.
+
+## ✨ Nuevas Funcionalidades
+
+### 🔄 Análisis Bilingüe
+- Soporte completo para español e inglés
+- Detección automática del idioma del CV
+- Interfaz de usuario en ambos idiomas
+
+### 💼 Análisis de Compatibilidad Laboral
+- Comparación de CV con descripciones de trabajo
+- Puntuación de compatibilidad detallada
+- Recomendaciones específicas para mejorar el match
+
+### 🎨 Interfaz Mejorada
+- Nuevo diseño moderno y responsivo
+- Modo claro/oscuro
+- Navegación intuitiva entre análisis
+
+## 🚀 Características Principales
+
+- Extracción automática de información de CVs en PDF
+- Análisis detallado de habilidades y experiencia
+- Recomendaciones personalizadas
+- Soporte para múltiples formatos de CV
+- Dashboard interactivo con estadísticas
+
+## 🛠️ Tecnologías
+
+- FastAPI
+- Jinja2 Templates
+- SQLAlchemy
+- Spacy & NLTK
+- PyPDF2 & pdfplumber
+
+## 📋 Requisitos
+
+- Python 3.8+
+- Dependencias listadas en requirements.txt
+
+## 🔧 Instalación
+
+```bash
+# Clonar el repositorio
+git clone https://github.com/DemetrioReyes/analizador-cv.git
+
+# Instalar dependencias
+pip install -r requirements.txt
+
+# Iniciar el servidor
+uvicorn main:app --reload
+```
+
+## 🌐 Uso
+
+1. Accede a `http://localhost:8000`
+2. Sube un CV en formato PDF
+3. Selecciona el tipo de análisis deseado:
+   - Análisis General
+   - Compatibilidad Laboral
+4. Revisa los resultados y recomendaciones
+
+## 📊 Tipos de Análisis
+
+### Análisis General
+- Extracción de información clave
+- Evaluación de habilidades
+- Recomendaciones de mejora
+
+### Análisis de Compatibilidad
+- Comparación con descripción del puesto
+- Puntuación de compatibilidad
+- Sugerencias específicas
+
+## 🤝 Contribuir
+
+Las contribuciones son bienvenidas. Por favor:
+
+1. Haz fork del proyecto
+2. Crea una rama para tu feature
+3. Commit tus cambios
+4. Push a la rama
+5. Abre un Pull Request
+
+## 📝 Licencia
+
+Este proyecto es libre de explorar
+
+## 📞 Contacto
+
+- Nombre - Demetrio Reyes
+- Email - rdemetrio72@yahoo.com
+- linkeind: www.linkedin.com/in/demetrio-reyes-martinez-499765341
 
 ## Características
 

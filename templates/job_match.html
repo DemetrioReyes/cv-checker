@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de Compatibilidad</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Análisis de Compatibilidad con el Puesto</h1>
+        
+        <div class="match-card">
+            <div class="match-score {{ 'high-match' if match_results.match_percentage >= 85 else 'low-match' }}">
+                <h2>Porcentaje de Compatibilidad: {{ match_results.match_percentage }}%</h2>
+                <p class="match-status">Estado: {{ match_results.qualification_status }}</p>
+            </div>
+
+            {% if match_results.missing_skills %}
+            <div class="missing-skills">
+                <h3>Habilidades Faltantes:</h3>
+                <ul>
+                    {% for skill in match_results.missing_skills %}
+                    <li>{{ skill }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            {% if match_results.feedback %}
+            <div class="feedback">
+                <h3>Recomendaciones:</h3>
+                <ul>
+                    {% for feedback_item in match_results.feedback %}
+                    <li>{{ feedback_item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+
+        <a href="/" class="back-button">Realizar Otro Análisis</a>
+    </div>
+</body>
+</html> 
